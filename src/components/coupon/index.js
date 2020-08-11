@@ -25,8 +25,10 @@ export default class Coupon extends Component {
     }
 
     handleDiscount(event) {
+        let { value, min, max } = event.target;
+        value = Math.max(Number(min), Math.min(Number(max), Number(value)));
         this.setState({
-            discount: event.target.value
+            discount: value
         })
     }
 
@@ -84,7 +86,7 @@ export default class Coupon extends Component {
                         <form onSubmit={this.handleSumbit}>
                             <label>
                                 Discount Percentage:
-                                <input type="number" name="discount" value={this.state.discount} onChange={this.handleDiscount} />
+                                <input type="number" name="discount" min="0" max="100" value={this.state.discount} onChange={this.handleDiscount} />
                             </label>
                             <label>
                                 Usage Limit:
