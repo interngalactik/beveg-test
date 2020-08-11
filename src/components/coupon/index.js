@@ -10,7 +10,7 @@ export default class Coupon extends Component {
             type: 'Food',
             discount: 0,
             limit: 0,
-            couponCode: 'XSJ-SXJ'
+            couponCode: ''
         }
 
         this.handleType = this.handleType.bind(this);
@@ -42,14 +42,23 @@ export default class Coupon extends Component {
             discount: this.state.discount,
             limit: this.state.discount
         };
-        console.log(body)
 
-        fetch('https://bevveg-app-test.herokuapp.com/coupons/generate', {
+        fetch('https://bevveg-app-test.herokuapp.com/api/coupons/generate', {
             method: 'POST',
             body: JSON.stringify(body)
-        }).then(function(response) {
-            console.log(response);
-        });
+        })
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
+            const items = data;
+            this.setState({
+                couponCode: items.coupon.coupon
+            })
+        })
+        .catch(error => {
+            alert('Error: ', error);
+        })
 
         event.preventDefault();
     }
@@ -75,11 +84,11 @@ export default class Coupon extends Component {
                         <form onSubmit={this.handleSumbit}>
                             <label>
                                 Discount Percentage:
-                                <input type="number" name="discount" onChange={this.handleDiscount} />
+                                <input type="number" name="discount" value={this.state.discount} onChange={this.handleDiscount} />
                             </label>
                             <label>
                                 Usage Limit:
-                                <input type="number" name="limit" onChange={this.handleLimit} />
+                                <input type="number" name="limit" value={this.state.limit} onChange={this.handleLimit} />
                             </label>
                             <label>
                                 Discount For:
