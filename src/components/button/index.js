@@ -11,14 +11,14 @@ export default class Button extends Component {
 
     componentDidMount() {
         this.setState({
-            btnName: this.props.btnName
+            btnName: this.props.btnName,
         })
     }
 
     render() {
         return(
             <div className="btn-container">
-                <button className="btn">{this.state.btnName}</button>
+                <button className="btn" onClick={this.props.onClick}>{this.state.btnName}</button>
             </div>
         )
     }

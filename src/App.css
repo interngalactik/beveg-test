@@ -1,14 +1,15 @@
-.App {
+.app {
   text-align: center;
 }
 
-.App-logo {
+.app-logo {
   pointer-events: none;
   filter: invert(100%);
+  padding-bottom: 5vh;
 }
 
 
-.App-header {
+.app-header {
   background-color: #157453;
   min-height: 100vh;
   display: flex;

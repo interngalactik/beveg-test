@@ -1,7 +1,3 @@
-.btn-container {
-
-}
-
 .btn {
     color: #fff;
     background-color: #4AD566;
@@ -9,4 +5,13 @@
     border: none;
     padding: 10px 25px;
     border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn:active {
+    background-color: #1da338;
+}
+
+.btn:focus {
+    outline: 0;
 }
