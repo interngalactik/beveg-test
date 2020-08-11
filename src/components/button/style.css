@@ -1,0 +1,12 @@
+.btn-container {
+
+}
+
+.btn {
+    color: #fff;
+    background-color: #4AD566;
+    text-transform: capitalize;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 5px;
+}
